@@ -1,0 +1,23 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <h2>✈️ Create your Trippy Account</h2>
+
+    <form #signupForm="ngForm" (ngSubmit)="signup()" novalidate>
+      <input type="text" name="name" [(ngModel)]="name" placeholder="Full Name" required />
+      <div *ngIf="signupForm.submitted && !name" class="error">Name is required</div>
+
+      <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required />
+      <div *ngIf="signupForm.submitted && !email" class="error">Valid email required</div>
+
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required minlength="6" />
+      <div *ngIf="signupForm.submitted && password.length < 6" class="error">Min 6 characters</div>
+
+      <button type="submit">Sign Up</button>
+
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+
+    <p class="bottom-link">Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+</div>

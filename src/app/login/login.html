@@ -1,0 +1,42 @@
+<div class="page-wrapper">
+  <div class="auth-container">
+    <h2>Welcome Back to Trippy</h2>
+    <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+      
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Email"
+        required
+        pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+        #emailInput="ngModel"
+      />
+      <div *ngIf="emailInput.invalid && emailInput.touched" class="validation-error">
+        Email must be a valid Gmail address.
+      </div>
+
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Password"
+        required
+        minlength="6"
+        #passwordInput="ngModel"
+      />
+      <div *ngIf="passwordInput.invalid && passwordInput.touched" class="validation-error">
+        Password must be at least 6 characters long.
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+
+      <p class="switch">
+        Don’t have an account? <a routerLink="/signup">Sign Up</a>
+      </p>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+    </form>
+  </div>
+</div>

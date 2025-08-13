@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Travelly</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Explore the world's most beautiful destinations with us.</p>
+            <form class="search-form" onsubmit="searchTrips(event)">
+                <input type="text" placeholder="Where do you want to go?" required>
+                <input type="date" required>
+                <input type="date" required>
+                <button type="submit">Search</button>
+            </form>
+            <div class="cta-buttons">
+                <a href="#destinations" class="cta-button">Explore Destinations</a>
+                <a href="#contact" class="cta-button">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations Section -->
+    <section id="destinations" class="destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination-grid">
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&h=300&fit=crop" alt="Paris">
+                <h3>Paris, France</h3>
+                <p>From $1,299</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop" alt="Tokyo">
+                <h3>Tokyo, Japan</h3>
+                <p>From $1,599</p>
+            </div>
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=400&h=300&fit=crop" alt="Bali">
+                <h3>Bali, Indonesia</h3>
+                <p>From $899</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Amazing experience! The trip was well organized and the guides were fantastic."</p>
+                <h4>- Sarah J.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"I loved every moment of my vacation. Highly recommend this travel agency!"</p>
+                <h4>- Mark T.</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"The best travel experience I've ever had. Will definitely book again!"</p>
+                <h4>- Emily R.</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <p>&copy; 2024 Travelly. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

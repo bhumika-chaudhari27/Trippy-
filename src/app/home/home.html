@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trippy - Your Premium Travel Companion</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-plane"></i>
+                Trippy
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li>
+                        <a routerLink="/booking" class="cta-button book-now-btn">
+                            <i class="fas fa-calendar-check"></i> Book Now
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#destinations" class="cta-button explore-btn">
+                            <i class="fas fa-compass"></i> Explore
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="floating-elements">
+            <div class="floating-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="floating-icon"><i class="fas fa-camera"></i></div>
+            <div class="floating-icon"><i class="fas fa-compass"></i></div>
+            <div class="floating-icon"><i class="fas fa-mountain"></i></div>
+        </div>
+        <div class="hero-content">
+            <h1>Discover Your Next Adventure</h1>
+            <p>Embark on unforgettable journeys to breathtaking destinations around the world. Create memories that last a lifetime with our curated travel experiences.</p>
+            <a href="#destinations" class="cta-button">
+                <i class="fas fa-compass"></i> Explore Destinations
+            </a>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-card">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: #333; font-size: 2rem;">Find Your Perfect Trip</h2>
+                <form class="search-form" onsubmit="searchTrips(event)">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" id="destination" name="destination" placeholder="Where do you want to go?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkin">Check-in Date</label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Check-out Date</label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travelers">Travelers</label>
+                        <select id="travelers" name="travelers" required>
+                            <option value="">Select travelers</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="search-button">
+                            <i class="fas fa-search"></i> Search Trips
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <div class="destinations-grid">
+                <div class="destination-card" onclick="openDestinationModal('paris')">
+                    <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=600&h=400&fit=crop');">
+                        <div class="destination-badge">Popular</div>
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Paris, France</h3>
+                        <p class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            City of Light
+                        </p>
+                        <div class="destination-price">From $1,299</div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" onclick="openDestinationModal('tokyo')">
+                    <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=400&fit=crop');">
+                        <div class="destination-badge">Trending</div>
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Tokyo, Japan</h3>
+                        <p class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Land of the Rising Sun
+                        </p>
+                        <div class="destination-price">From $1,599</div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" onclick="openDestinationModal('bali')">
+                    <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&h=400&fit=crop');">
+                        <div class="destination-badge">Hot Deal</div>
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Bali, Indonesia</h3>
+                        <p class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Island Paradise
+                        </p>
+                        <div class="destination-price">From $899</div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" onclick="openDestinationModal('newyork')">
+                    <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=400&fit=crop');">
+                        <div class="destination-badge">Classic</div>
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">New York, USA</h3>
+                        <p class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            The Big Apple
+                        </p>
+                        <div class="destination-price">From $1,199</div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.6)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" onclick="openDestinationModal('santorini')">
+                    <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&h=400&fit=crop');">
+                        <div class="destination-badge">Romantic</div>
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Santorini, Greece</h3>
+                        <p class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Aegean Paradise
+                        </p>
+                        <div class="destination-price">From $1,799</div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.8)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="destination-card" onclick="openDestinationModal('dubai')">
+                    <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop');">
+                        <div class="destination-badge">Luxury</div>
+                    </div>
+                    <div class="destination-content">
+                        <h3 class="destination-title">Dubai, UAE</h3>
+                        <p class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            City of Gold
+                        </p>
+                        <div class="destination-price">From $2,099</div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span>(4.7)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Trippy?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Safe & Secure</h3>
+                    <p class="feature-description">Your safety is our priority. We partner with trusted providers and offer 24/7 support throughout your journey.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="feature-title">Best Price Guarantee</h3>
+                    <p class="feature-description">We guarantee the best prices for your travel experiences. Find it cheaper elsewhere? We'll match it!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Expert Guides</h3>
+                    <p class="feature-description">Learn from local experts who know their destinations inside and out. Get authentic experiences and insider knowledge.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p class="feature-description">Need help? Our customer support team is available around the clock to assist you with any questions or concerns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.bing.com/ck/a?!&&p=2f89c9362bb17448ac1fb0b781026a0c375808b3751be15a0fbd64a6cd3163b0JmltdHM9MTc1NDE3OTIwMA&ptn=3&ver=2&hsh=4&fclid=0c33a4f7-eb66-624d-13be-b041ea5e63c7&psq=facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tLw&ntb=1"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.bing.com/ck/a?!&&p=579e2affdc19470332d533e5cec3c0a72c6f5099c4cf12a33433426a1a3d17adJmltdHM9MTc1NDE3OTIwMA&ptn=3&ver=2&hsh=4&fclid=0c33a4f7-eb66-624d-13be-b041ea5e63c7&psq=twitter&u=a1aHR0cHM6Ly90d2l0dGVyLmNvbS8_bGFuZz1lbi1pbg&ntb=1"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.bing.com/ck/a?!&&p=c2181779c1d68aeef8392c23686bd0dd5cafcc70af7e109321a7de33dd71db8eJmltdHM9MTc1NDE3OTIwMA&ptn=3&ver=2&hsh=4&fclid=0c33a4f7-eb66-624d-13be-b041ea5e63c7&psq=instagram&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS8&ntb=1"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.bing.com/ck/a?!&&p=20321fd32b91d618dc14d92e4a6d2a26fd616f61e7747e8b5cc082ab0db702eaJmltdHM9MTc1NDE3OTIwMA&ptn=3&ver=2&hsh=4&fclid=0c33a4f7-eb66-624d-13be-b041ea5e63c7&psq=youtube&u=a1aHR0cHM6Ly93d3cueW91dHViZS5jb20vP2dsPUlO&ntb=1"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Trippy. All rights reserved. | Your Premium Travel Companion</p>
+        </div>
+    </footer>
+
+    <!-- Destination Modal -->
+    <div id="destinationModal" class="destination-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDestinationModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalHero" class="modal-hero">
+                <div class="modal-hero-content">
+                    <h2 id="modalTitle" class="modal-title">Paris, France</h2>
+                    <p id="modalLocation" class="modal-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        City of Light
+                    </p>
+                    <div id="modalPrice" class="price-display">From $1,299</div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription" class="modal-description">
+                    Experience the magic of Paris with our carefully curated travel package. From the iconic Eiffel Tower to the charming streets of Montmartre, discover the city that has captured hearts for centuries.
+                </p>
+
+                <div class="modal-section">
+                    <h3>Trip Highlights</h3>
+                    <div id="modalHighlights" class="highlights-grid">
+                        <!-- Highlights will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Photo Gallery</h3>
+                    <div id="modalGallery" class="gallery-grid">
+                        <!-- Gallery will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Sample Itinerary</h3>
+                    <div id="modalItinerary" class="itinerary-list">
+                        <!-- Itinerary will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>What's Included</h3>
+                    <div id="modalIncludes" class="includes-list">
+                        <!-- Includes will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="secondary-button" onclick="showNotification('More information sent to your email!', 'success')">
+                        <i class="fas fa-info-circle"></i> More Info
+                    </button>
+                    <button class="cta-button" onclick="bookTrip()">
+                        <i class="fas fa-calendar-check"></i> Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <span id="notificationText">Notification text here</span>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Search form submission
+        function searchTrips(event) {
+            event.preventDefault();
+            showLoading();
+            
+            const formData = new FormData(event.target);
+            const searchData = Object.fromEntries(formData);
+            
+            // Simulate API call
+            setTimeout(() => {
+                hideLoading();
+                showNotification(`Searching for trips to ${searchData.destination}...`, 'success');
+                // Scroll to destinations
+                document.getElementById('destinations').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 2000);
+        }
+
+        // Destination data
+        const destinationData = {
+            paris: {
+                title: "Paris, France",
+                location: "City of Light",
+                price: "From $1,299",
+                image: "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=1200&h=600&fit=crop",
+                description: "Experience the magic of Paris with our carefully curated travel package. From the iconic Eiffel Tower to the charming streets of Montmartre, discover the city that has captured hearts for centuries. Enjoy world-class cuisine, magnificent art collections at the Louvre, and romantic Seine river cruises.",
+                highlights: [
+                    { icon: "fas fa-landmark", title: "Eiffel Tower", desc: "Visit the iconic symbol of Paris" },
+                    { icon: "fas fa-palette", title: "Louvre Museum", desc: "See the Mona Lisa and world art" },
+                    { icon: "fas fa-bread-slice", title: "French Cuisine", desc: "Taste authentic French delicacies" },
+                    { icon: "fas fa-water", title: "Seine Cruise", desc: "Romantic river cruise experience" }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1431274172761-fca41d930114?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1520637836862-4d197d17c51a?w=400&h=300&fit=crop"
+                ],
+                itinerary: [
+                    { day: "Day 1", title: "Arrival & City Tour", desc: "Arrive in Paris, check into hotel, evening city orientation tour" },
+                    { day: "Day 2", title: "Eiffel Tower & Seine", desc: "Visit Eiffel Tower, lunch at Trocadéro, Seine river cruise" },
+                    { day: "Day 3", title: "Louvre & Montmartre", desc: "Morning at Louvre Museum, afternoon exploring Montmartre" },
+                    { day: "Day 4", title: "Versailles Day Trip", desc: "Full day excursion to Palace of Versailles and gardens" },
+                    { day: "Day 5", title: "Free Day & Departure", desc: "Shopping on Champs-Élysées, departure transfers" }
+                ],
+                includes: [
+                    "Round-trip flights", "4-star hotel accommodation", "Daily breakfast", 
+                    "Professional tour guide", "Entrance fees", "Airport transfers", 
+                    "Seine river cruise", "Versailles day trip"
+                ]
+            },
+            tokyo: {
+                title: "Tokyo, Japan",
+                location: "Land of the Rising Sun",
+                price: "From $1,599",
+                image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&h=600&fit=crop",
+                description: "Immerse yourself in the perfect blend of traditional culture and cutting-edge technology in Tokyo. From ancient temples to neon-lit districts, experience the vibrant energy of Japan's capital city. Enjoy authentic sushi, witness the famous cherry blossoms, and explore both historic and ultra-modern neighborhoods.",
+                highlights: [
+                    { icon: "fas fa-torii-gate", title: "Senso-ji Temple", desc: "Ancient Buddhist temple experience" },
+                    { icon: "fas fa-fish", title: "Tsukiji Market", desc: "Fresh sushi and seafood adventure" },
+                    { icon: "fas fa-mountain", title: "Mount Fuji", desc: "Day trip to iconic mountain" },
+                    { icon: "fas fa-robot", title: "Tech Districts", desc: "Explore Shibuya and Harajuku" }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=400&h=300&fit=crop"
+                ],
+                itinerary: [
+                    { day: "Day 1", title: "Arrival & Shibuya", desc: "Land in Tokyo, hotel check-in, explore Shibuya crossing" },
+                    { day: "Day 2", title: "Traditional Tokyo", desc: "Visit Senso-ji Temple, Imperial Palace, traditional tea ceremony" },
+                    { day: "Day 3", title: "Modern Tokyo", desc: "Harajuku, Omotesando shopping, Robot Restaurant show" },
+                    { day: "Day 4", title: "Mount Fuji Trip", desc: "Full day excursion to Mount Fuji and Lake Kawaguchi" },
+                    { day: "Day 5", title: "Tsukiji & Departure", desc: "Early morning fish market, sushi breakfast, departure" }
+                ],
+                includes: [
+                    "Round-trip flights", "Traditional ryokan stay", "Japanese breakfast", 
+                    "English-speaking guide", "JR Pass for trains", "Airport transfers", 
+                    "Mount Fuji day trip", "Cultural experiences"
+                ]
+            },
+            bali: {
+                title: "Bali, Indonesia",
+                location: "Island Paradise",
+                price: "From $899",
+                image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=1200&h=600&fit=crop",
+                description: "Escape to the tropical paradise of Bali, where stunning beaches meet ancient temples and lush rice terraces. Experience the spiritual heart of Indonesia with yoga retreats, traditional ceremonies, and world-class spa treatments. Discover hidden waterfalls, vibrant coral reefs, and warm Balinese hospitality.",
+                highlights: [
+                    { icon: "fas fa-om", title: "Temple Tours", desc: "Visit sacred Hindu temples" },
+                    { icon: "fas fa-water", title: "Beach Paradise", desc: "Pristine beaches and surfing" },
+                    { icon: "fas fa-seedling", title: "Rice Terraces", desc: "UNESCO World Heritage sites" },
+                    { icon: "fas fa-spa", title: "Spa Treatments", desc: "Traditional Balinese wellness" }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=400&h=300&fit=crop"
+                ],
+                itinerary: [
+                    { day: "Day 1", title: "Arrival & Ubud", desc: "Airport pickup, transfer to Ubud, jungle walk" },
+                    { day: "Day 2", title: "Temple & Culture", desc: "Tanah Lot temple, traditional dance performance" },
+                    { day: "Day 3", title: "Rice Terraces", desc: "Jatiluwih rice terraces, local village visit" },
+                    { day: "Day 4", title: "Beach Day", desc: "Seminyak beach, surfing lessons, sunset dinner" },
+                    { day: "Day 5", title: "Spa & Departure", desc: "Traditional spa treatment, shopping, departure" }
+                ],
+                includes: [
+                    "Round-trip flights", "Boutique resort stay", "Daily breakfast", 
+                    "Private driver guide", "Temple entrance fees", "Airport transfers", 
+                    "Spa treatment", "Cultural performances"
+                ]
+            },
+            newyork: {
+                title: "New York, USA",
+                location: "The Big Apple",
+                price: "From $1,199",
+                image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1200&h=600&fit=crop",
+                description: "Experience the energy of the city that never sleeps. From Broadway shows to world-class museums, iconic landmarks to diverse neighborhoods, New York offers endless possibilities. Walk through Central Park, catch a show in Times Square, and enjoy cuisine from around the world in this vibrant metropolis.",
+                highlights: [
+                    { icon: "fas fa-building", title: "Empire State", desc: "Iconic skyscraper views" },
+                    { icon: "fas fa-theater-masks", title: "Broadway Shows", desc: "World-class entertainment" },
+                    { icon: "fas fa-tree", title: "Central Park", desc: "Urban oasis exploration" },
+                    { icon: "fas fa-utensils", title: "Food Scene", desc: "Diverse culinary experiences" }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?w=400&h=300&fit=crop"
+                ],
+                itinerary: [
+                    { day: "Day 1", title: "Manhattan Arrival", desc: "Hotel check-in, Times Square exploration, Broadway show" },
+                    { day: "Day 2", title: "Classic NYC", desc: "Empire State Building, Central Park, Metropolitan Museum" },
+                    { day: "Day 3", title: "Statue of Liberty", desc: "Ferry to Liberty Island, Ellis Island, Brooklyn Bridge walk" },
+                    { day: "Day 4", title: "Neighborhoods", desc: "SoHo shopping, Little Italy, Chinatown food tour" },
+                    { day: "Day 5", title: "Final Day", desc: "High Line park, Chelsea Market, departure preparations" }
+                ],
+                includes: [
+                    "Round-trip flights", "Manhattan hotel", "Continental breakfast", 
+                    "Professional guide", "Broadway show tickets", "Airport transfers", 
+                    "Statue of Liberty ferry", "Museum entrances"
+                ]
+            },
+            santorini: {
+                title: "Santorini, Greece",
+                location: "Aegean Paradise",
+                price: "From $1,799",
+                image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&h=600&fit=crop",
+                description: "Discover the breathtaking beauty of Santorini with its iconic white-washed buildings, blue-domed churches, and spectacular sunsets. This volcanic island offers world-class wines, ancient ruins, and some of the most romantic views in the Mediterranean. Experience luxury accommodation and authentic Greek cuisine.",
+                highlights: [
+                    { icon: "fas fa-sun", title: "Epic Sunsets", desc: "World's most beautiful sunsets" },
+                    { icon: "fas fa-wine-glass", title: "Wine Tasting", desc: "Volcanic soil vineyards" },
+                    { icon: "fas fa-ruins", title: "Ancient Sites", desc: "Akrotiri archaeological site" },
+                    { icon: "fas fa-swimming-pool", title: "Infinity Pools", desc: "Luxury cliff-side hotels" }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1570012492-976893c88ab6?w=400&h=300&fit=crop"
+                ],
+                itinerary: [
+                    { day: "Day 1", title: "Arrival & Oia", desc: "Airport transfer, hotel check-in, sunset in Oia" },
+                    { day: "Day 2", title: "Fira & Culture", desc: "Explore Fira town, cable car ride, archaeological museum" },
+                    { day: "Day 3", title: "Wine & Beaches", desc: "Vineyard tours, wine tasting, Red Beach visit" },
+                    { day: "Day 4", title: "Boat Tour", desc: "Volcano cruise, hot springs, traditional Greek dinner" },
+                    { day: "Day 5", title: "Relaxation", desc: "Spa morning, shopping in Oia, farewell sunset" }
+                ],
+                includes: [
+                    "Round-trip flights", "Luxury cave hotel", "Greek breakfast", 
+                    "Private transfers", "Wine tasting tours", "Airport transfers", 
+                    "Volcano boat trip", "Spa treatments"
+                ]
+            },
+            dubai: {
+                title: "Dubai, UAE",
+                location: "City of Gold",
+                price: "From $2,099",
+                image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=600&fit=crop",
+                description: "Experience the ultimate luxury destination where modern architecture meets traditional Arabian culture. From the world's tallest building to man-made islands, Dubai offers unparalleled shopping, dining, and entertainment. Enjoy desert safaris, gold souks, and world-class hospitality in this futuristic city.",
+                highlights: [
+                    { icon: "fas fa-building", title: "Burj Khalifa", desc: "World's tallest building" },
+                    { icon: "fas fa-shopping-bag", title: "Luxury Shopping", desc: "Dubai Mall and gold souks" },
+                    { icon: "fas fa-fire", title: "Desert Safari", desc: "Dune bashing and camel rides" },
+                    { icon: "fas fa-utensils", title: "Fine Dining", desc: "Michelin-starred restaurants" }
+                ],
+                gallery: [
+                    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=400&h=300&fit=crop",
+                    "https://images.unsplash.com/photo-1571048421602-0b27de2a2e8f?w=400&h=300&fit=crop"
+                ],
+                itinerary: [
+                    { day: "Day 1", title: "Modern Dubai", desc: "Burj Khalifa visit, Dubai Mall, fountain show" },
+                    { day: "Day 2", title: "Traditional Dubai", desc: "Gold souk, spice market, dhow cruise dinner" },
+                    { day: "Day 3", title: "Palm Jumeirah", desc: "Atlantis resort, water park, luxury beach club" },
+                    { day: "Day 4", title: "Desert Adventure", desc: "Desert safari, camel riding, Bedouin camp dinner" },
+                    { day: "Day 5", title: "Luxury Day", desc: "Spa treatment, fine dining, last-minute shopping" }
+                ],
+                includes: [
+                    "Round-trip flights", "5-star hotel stay", "Daily breakfast", 
+                    "Private guide", "Burj Khalifa tickets", "Airport transfers", 
+                    "Desert safari", "Dhow cruise dinner"
+                ]
+            }
+        };
+    });
+    </script>
+</body>
+</html>

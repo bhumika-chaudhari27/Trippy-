@@ -1,0 +1,109 @@
+/* Force page to fill entire screen and center contents */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+}
+
+/* NEW: Wrapper for full-screen centering */
+.page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Container box */
+.auth-container {
+  background: linear-gradient(to bottom, #ffffff, #e0f2f1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Heading */
+.auth-container h2 {
+  text-align: center;
+  color: #00796b;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+/* Input */
+.auth-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fefefe;
+  transition: 0.3s ease;
+}
+
+.auth-container input:focus {
+  border-color: #26c6da;
+  box-shadow: 0 0 8px #80deea;
+  outline: none;
+}
+
+/* Button */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #ff9800, #ffc107);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-container button:hover {
+  background: linear-gradient(to right, #f57c00, #ffa000);
+  box-shadow: 0 8px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* Switch text */
+.auth-container .switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-container .switch a {
+  color: #00796b;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-container .switch a:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.validation-error {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
